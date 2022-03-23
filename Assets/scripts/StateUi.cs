@@ -16,18 +16,31 @@ public class StateUi : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("Scene"))
             _currentScene = PlayerPrefs.GetInt("Scene");
+        _countShotText.text = _countShot.ToString();
+    }
+    private void Update()
+    {
+        if (_inputButton.Escape)
+        {
+            Pause();
+        }
     }
     public void Win()
     {
         _winDisplay.SetActive(true);
-            _currentScene = SceneManager.GetActiveScene().buildIndex;
-        PlayerPrefs.SetInt("Scene", _currentScene + 1);
-        if (SceneManager.sceneCount - 1 < _currentScene)
+        _currentScene = SceneManager.GetActiveScene().buildIndex;
+        if (SceneManager.sceneCount-1 < _currentScene)
+        {
+            print($"noooo {SceneManager.GetAllScenes().Length}");
+            PlayerPrefs.SetInt("Scene", _currentScene + 1);
             _nextLevel.gameObject.SetActive(true);
+        }
+        StopReadClick(false);
                 
     }
     public void Lost() 
     {
+        StopReadClick(false);
         _lostDisplay.SetActive(true);
         _inputButton.Pause(false);
     }
@@ -44,7 +57,11 @@ public class StateUi : MonoBehaviour
     public void Pause()
     {
         _pauseDisplay.SetActive(!_pauseDisplay.activeInHierarchy);
-        _inputButton.Pause(!_pauseDisplay.activeInHierarchy);
+        StopReadClick(!_pauseDisplay.activeInHierarchy);
+    }
+    private void StopReadClick(bool state)
+    {
+        _inputButton.Pause(state);
     }
     public void Restart()
     {

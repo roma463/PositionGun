@@ -6,6 +6,7 @@ public class InputButton : MonoBehaviour
     public bool MouseRightStay { private set; get; }
     public bool MouseLeft { private set; get; }
     public bool Space { private set; get; }
+    public bool Escape { private set; get; }
     private bool _isPause = true;
     private void Update()
     {
@@ -22,6 +23,7 @@ public class InputButton : MonoBehaviour
         MouseLeft = Input.GetMouseButtonDown(0);
         Space = Input.GetKeyDown(KeyCode.Space);
         }
+        Escape = Input.GetKeyDown(KeyCode.Escape);
     }
     public void Pause(bool pause)
     {

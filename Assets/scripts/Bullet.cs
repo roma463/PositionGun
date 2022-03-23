@@ -13,8 +13,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out CollisionSurface collsionSurface))
         {
-            _train.transform.parent = null;
-            _train.StopParticals();
+
             _x = collision.GetContact(0).normal;
                 Teleport.Offset a = new Teleport.Offset();
                 if (_x == Vector2.up)
@@ -36,6 +35,8 @@ public class Bullet : MonoBehaviour
                 print(a);
                 _teleport.Player(a, collision.GetContact(0).point);
         }
+        _train.transform.parent = null;
+        _train.StopParticals();
         Destroy(gameObject);
     }
 }
