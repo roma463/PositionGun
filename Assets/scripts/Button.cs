@@ -12,7 +12,7 @@ public class Button : MonoBehaviour
     [SerializeField] private mobeClick _modeClick;
     private Action _action;
     private List<GameObject> _clickedButton = new List<GameObject>();
-    private void OnValidate()
+    private void Start()
     {
         if (_objectAction == null)
             return;
@@ -23,7 +23,6 @@ public class Button : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("enter");
         if (_clickedButton.Count == 0)
             _action.launch();
         _clickedButton.Add(collision.gameObject);
@@ -32,7 +31,7 @@ public class Button : MonoBehaviour
     {
         print("exit");
         _clickedButton.Remove(collision.gameObject);
-        if (_clickedButton.Count == 0 && _modeClick == mobeClick.stay)
+        if (_clickedButton.Count == 0)
             _action.launch();
     }
 }

@@ -14,8 +14,7 @@ public class StateUi : MonoBehaviour
     private int _currentScene;
     private void Start()
     {
-        if (PlayerPrefs.HasKey("Scene"))
-            _currentScene = PlayerPrefs.GetInt("Scene");
+        _currentScene = SceneManager.GetActiveScene().buildIndex;
         _countShotText.text = _countShot.ToString();
     }
     private void Update()
@@ -28,10 +27,8 @@ public class StateUi : MonoBehaviour
     public void Win()
     {
         _winDisplay.SetActive(true);
-        _currentScene = SceneManager.GetActiveScene().buildIndex;
-        if (SceneManager.sceneCount-1 < _currentScene)
+        if (SceneManager.sceneCountInBuildSettings- 1 > _currentScene)
         {
-            print($"noooo {SceneManager.GetAllScenes().Length}");
             PlayerPrefs.SetInt("Scene", _currentScene + 1);
             _nextLevel.gameObject.SetActive(true);
         }

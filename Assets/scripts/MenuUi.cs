@@ -5,6 +5,8 @@ public class MenuUi : MonoBehaviour
 {
     public void Play()
     {
-        SceneManager.LoadScene(1);
+        PlayerPrefs.DeleteAll();
+        var numberLevel = PlayerPrefs.GetInt("Scene", 1);
+        SceneManager.LoadScene(numberLevel);
     }
 }
