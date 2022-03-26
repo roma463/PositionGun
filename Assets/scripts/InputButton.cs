@@ -23,6 +23,10 @@ public class InputButton : MonoBehaviour
         MouseLeft = Input.GetMouseButtonDown(0);
         Space = Input.GetKeyDown(KeyCode.Space);
         }
+        else
+        {
+            Horizontal = 0;
+        }
         Escape = Input.GetKeyDown(KeyCode.Escape);
     }
     public void Pause(bool pause)

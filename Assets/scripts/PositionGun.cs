@@ -16,11 +16,12 @@ public class PositionGun : MonoBehaviour
     [SerializeField] private LayerMask _rayCollsiion;
     [SerializeField] private InputButton _inputButton;
     [SerializeField] private StateUi _stateUi;
+    [SerializeField] private int _countShoot;
     private Trajectory _trajectory;
     private Camera _camera;
-    private bool _posibilityShot = true;
     private void Start()
     {
+        _stateUi.DecreaseCountShot(_countShoot);
         _trajectory = GetComponent<Trajectory>();
         _camera = Camera.main;
     }
@@ -30,21 +31,7 @@ public class PositionGun : MonoBehaviour
         _trajectory.TrajectoryBullet(speed);
         if (_inputButton.MouseLeft)
         {
-            if (_posibilityShot)
-            {
-               if (!Physics2D.OverlapCircle(_gunPoint.position, .1f, _rayCollsiion))
-               {
-                   _posibilityShot = _stateUi.DecreaseCountShot();
-                   var bullet = Instantiate(_bullet, _gunPoint.position, Quaternion.identity);
-                   var rb = bullet.GetComponent<Rigidbody2D>();
-                   rb.gravityScale *= transform.parent.gameObject.transform.parent.localScale.y;
-                   rb.AddForce(speed, ForceMode2D.Impulse);
-               }
-            }
-            else
-            {
-                _stateUi.Lost();
-            }
+            Shoot(speed);
         }
         else if (_inputButton.MouseRightStay)
         {
@@ -53,6 +40,25 @@ public class PositionGun : MonoBehaviour
         else if (!_inputButton.MouseRightStay)
         {
             _holdObject.Throw();
+        }
+    }
+    private void Shoot(Vector2 speedBullet)
+    {
+        if (_countShoot > 0)
+        {
+            if (!Physics2D.OverlapCircle(_gunPoint.position, .1f, _rayCollsiion))
+            {
+                _countShoot--;
+                _stateUi.DecreaseCountShot(_countShoot);
+                var bullet = Instantiate(_bullet, _gunPoint.position, Quaternion.identity);
+                var rb = bullet.GetComponent<Rigidbody2D>();
+                rb.gravityScale *= transform.parent.gameObject.transform.parent.localScale.y;
+                rb.AddForce(speedBullet, ForceMode2D.Impulse);
+            }
+        }
+        else
+        {
+            _stateUi.Lost();
         }
     }
 }

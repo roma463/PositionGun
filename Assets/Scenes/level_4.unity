@@ -5259,7 +5259,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!114 &914481918 stripped
 MonoBehaviour:
@@ -5485,7 +5485,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1332620230
 PrefabInstance:
@@ -5988,6 +5988,10 @@ PrefabInstance:
       propertyPath: _stateUi
       value: 
       objectReference: {fileID: 119311827}
+    - target: {fileID: 7323935746854482000, guid: da3a194260593b74a89bc09245b22bc6, type: 3}
+      propertyPath: _countShoot
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7323935748224626289, guid: da3a194260593b74a89bc09245b22bc6, type: 3}
       propertyPath: m_Name
       value: Player
