@@ -1,12 +1,23 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MenuUi : MonoBehaviour
 {
+    [SerializeField] private Text _lastLevelText;
+    private int _lastLevel;
+    private void Start()
+    {
+        //PlayerPrefs.DeleteAll();
+        _lastLevel = PlayerPrefs.GetInt("Scene", 1);
+        _lastLevelText.text = _lastLevel.ToString();
+    }
+    public void Quit()
+    {
+        Application.Quit();
+    }
     public void Play()
     {
-        PlayerPrefs.DeleteAll();
-        var numberLevel = PlayerPrefs.GetInt("Scene", 1);
-        SceneManager.LoadScene(numberLevel);
+        SceneManager.LoadScene(_lastLevel);
     }
 }
