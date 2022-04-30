@@ -8,8 +8,8 @@ public class StateUi : MonoBehaviour
     [SerializeField] private GameObject _pauseDisplay;
     [SerializeField] private GameObject _lostDisplay;
     [SerializeField] private Text _nextLevel;
-    [SerializeField] private Text _countShotText;
-    [SerializeField] private InputButton _inputButton;
+    [SerializeField] private Text _countShoot;
+    [SerializeField] private InputKey _inputButton;
     private int _currentScene;
     private void Start()
     {
@@ -41,7 +41,7 @@ public class StateUi : MonoBehaviour
     }
     public void DecreaseCountShot(int countShoot)
     {
-        _countShotText.text = countShoot.ToString();
+        _countShoot.text = countShoot.ToString();
     }
     public void Pause()
     {

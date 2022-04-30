@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class InputButton : MonoBehaviour
+public class InputKey : MonoBehaviour
 {
     public float Horizontal { private set; get; }
     public bool MouseRightStay { private set; get; }
@@ -12,16 +12,18 @@ public class InputButton : MonoBehaviour
     {
         if (_isPause)
         {
+            Horizontal = Input.GetAxis("Horizontal");
 
-        Horizontal = Input.GetAxis("Horizontal");
-
-        if (Input.GetMouseButtonDown(1))
-            MouseRightStay = true;
-        else if (Input.GetMouseButtonUp(1))
-            MouseRightStay = false;
-
-        MouseLeft = Input.GetMouseButtonDown(0);
-        Space = Input.GetKeyDown(KeyCode.Space);
+            if (Input.GetMouseButtonDown(1))
+            { 
+                MouseRightStay = true;
+            }
+            else if (Input.GetMouseButtonUp(1))
+            {
+                MouseRightStay = false;
+            }
+            MouseLeft = Input.GetMouseButtonDown(0);
+            Space = Input.GetKeyDown(KeyCode.Space);
         }
         else
         {

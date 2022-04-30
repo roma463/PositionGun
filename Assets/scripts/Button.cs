@@ -3,15 +3,9 @@ using UnityEngine;
 
 public class Button : MonoBehaviour
 {
-    enum mobeClick
-    {
-        stay,
-        single,
-    }
     [SerializeField] private GameObject _objectAction;
-    [SerializeField] private mobeClick _modeClick;
     private Action _action;
-    private List<GameObject> _clickedButton = new List<GameObject>();
+    private List<GameObject> _objectClickedButton = new List<GameObject>();
     private void Start()
     {
         if (_objectAction == null)
@@ -23,15 +17,14 @@ public class Button : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (_clickedButton.Count == 0)
+        if (_objectClickedButton.Count == 0)
             _action.launch();
-        _clickedButton.Add(collision.gameObject);
+        _objectClickedButton.Add(collision.gameObject);
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        print("exit");
-        _clickedButton.Remove(collision.gameObject);
-        if (_clickedButton.Count == 0)
+        _objectClickedButton.Remove(collision.gameObject);
+        if (_objectClickedButton.Count == 0)
             _action.launch();
     }
 }

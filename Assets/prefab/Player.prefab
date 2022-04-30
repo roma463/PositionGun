@@ -108,8 +108,9 @@ MonoBehaviour:
   _rayCollsiion:
     serializedVersion: 2
     m_Bits: 192
-  _inputButton: {fileID: 7323935748224626294}
+  _inputButton: {fileID: 1451811198027803690}
   _stateUi: {fileID: 0}
+  _countShoot: 0
 --- !u!114 &7323935746854482002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -790,7 +791,7 @@ GameObject:
   - component: {fileID: 7323935748224626291}
   - component: {fileID: 7323935748224626290}
   - component: {fileID: 7323935748224626293}
-  - component: {fileID: 7323935748224626294}
+  - component: {fileID: 1451811198027803690}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -879,7 +880,7 @@ MonoBehaviour:
   _pointLeft: {fileID: 7323935747584875583}
   _pointRight: {fileID: 7323935747326348807}
   _holdObject: {fileID: 7323935746854482001}
---- !u!114 &7323935748224626294
+--- !u!114 &1451811198027803690
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -888,7 +889,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7323935748224626289}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba17a2e41948b41439690454ba06f15f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5dae20af8a525b04ca5e4fc36e98e15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7323935748421541316

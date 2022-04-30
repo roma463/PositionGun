@@ -21,11 +21,11 @@ public class Door : MonoBehaviour, Action
             _currentCorutine = null;
         }
         if (_isOpen == false)
-            _currentCorutine = StartCoroutine(Raise());
+            _currentCorutine = StartCoroutine(Open());
         else
             _currentCorutine = StartCoroutine(Closed());
     }
-    private IEnumerator Raise()
+    private IEnumerator Open()
     {
         for (float i = transform.localScale.y; i > 1; i -= Time.deltaTime * _speed)
         {

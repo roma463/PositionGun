@@ -14,7 +14,7 @@ public class PositionGun : MonoBehaviour
     [SerializeField] private float _force;
     [SerializeField] private HoldObject _holdObject;
     [SerializeField] private LayerMask _rayCollsiion;
-    [SerializeField] private InputButton _inputButton;
+    [SerializeField] private InputKey _inputButton;
     [SerializeField] private StateUi _stateUi;
     [SerializeField] private int _countShoot;
     private Trajectory _trajectory;

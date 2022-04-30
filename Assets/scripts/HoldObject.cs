@@ -28,7 +28,7 @@ public class HoldObject : MonoBehaviour
         var hit = Physics2D.Linecast(_spawnBullet.position, collision.transform.position, _layerForRay);
         if (hit.collider.gameObject != collision.gameObject)
             return;
-        if (collision.TryGetComponent(out useObject use))
+        if (collision.TryGetComponent(out UseObject use))
         {
             _joint.connectedBody = use.gameObject.GetComponent<Rigidbody2D>();
             _useObject = collision.transform;

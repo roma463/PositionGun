@@ -15,7 +15,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float _timeKnowJump;
 
     private Rigidbody2D _rigidbody;
-    private InputButton _inputButton;
+    private InputKey _inputButton;
     private bool _isGround;
     private bool _InputJump;
     private bool _startCorutaine;
@@ -28,20 +28,12 @@ public class PlayerMove : MonoBehaviour
     }
     private void Start()
     {
-        _inputButton = GetComponent<InputButton>();
+        _inputButton = GetComponent<InputKey>();
         _rigidbody = GetComponent<Rigidbody2D>();
     }
     private void FixedUpdate()
     {
         _rigidbody.velocity = (new Vector2(_inputButton.Horizontal * _speed, _rigidbody.velocity.y));
-        //if (horizontal > 0 && _isLookRight == false)
-        //{
-        //    Flip();
-        //}
-        //else if (horizontal < 0 && _isLookRight == true)
-        //{
-        //    Flip();
-        //}
     }
     private void Flip()
     {
